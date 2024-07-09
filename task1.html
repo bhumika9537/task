@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      *{
+        margin: 0;
+    padding: 0;
+    font-family: "poppins",sans-serif;
+    }
+    .main_box{
+        background-image: url("photo2.jpg");
+    height: 100vh;
+    background-size: cover;
+    }
+    .btn_one{
+       color:  black;
+        font-size: 30px;
+        font-weight:700 ;
+        position: absolute;
+        left: 16px;
+        line-height: 60px;
+        cursor: pointer;
+       transition: all 0.3s linear;
+    }
+    .sidebar_menu{
+        position: fixed;
+       left: -350px;
+      height:100vh ;
+      width:300px;
+      background-color: rgba(233, 233, 241, 0.1);
+      box-shadow: 0 0 6px rgba(98, 17, 17, 0.5) ;
+      transition: all 0.3s linear;
+    }
+    .sidebar_menu.logo{
+        position: absolute;
+        width: 100px;
+        line-height:60px ;
+        box-shadow: 0 0 4px rgba(121, 62, 62, 0.5);
+        height:60px ;
+    }
+    .sidebar_menu .logo a {
+        position: absolute;
+        left: 50px;
+        color: black;
+        text-decoration: none;
+        font-size:80px ;
+        font-weight: 700;
+    }
+    .sidebar_menu .btn_two i {
+        color: black;
+        font-size: 30px;
+        font-weight: 700;
+        position: absolute;
+        left: 275px;
+        cursor: pointer;
+        /* opacity: 0; */
+        transition: all 0.3s linear;
+    
+    
+    }
+    
+    .sidebar_menu .menu{
+        position: absolute;
+        /* width:100px; */
+        top: 80px;
+    }
+    .sidebar_menu .menu li{
+        /* color: white; */
+        margin:6px ;
+         padding:14px 20px ; 
+         color: black;
+    }
+    .sidebar_menu .menu i,a{
+        color: black;
+        text-decoration: none;
+        font-size: 700;
+    }
+    .sidebar_menu .menu i{
+        padding-right: 8px;
+    }
+    .sidebar_menu .social_media{
+        position: absolute;
+        left: 25%;
+        bottom: 20px;
+    
+    }
+    .sidebar_menu .social_media i{
+        color: black;
+        opacity: 1;
+        padding: 0.5px;
+    }
+    #check{
+       display:none;
+    }
+    .sidebar_menu .menu li:hover{
+        box-shadow: 0 0 4px rgba(19, 1, 1, 0.7);
+        background-color:rgb(139, 138, 149);
+        opacity: 2;
+    
+    }
+    .btn_one i:hover{
+      font-size: 40px;  
+    }
+    .btn_two i:hover{
+        font-size: 50px;
+        
+    }
+    .sidebar_menu .social_media i:hover{
+        opacity:1;
+        transform: scale(2);
+    }
+    #check:checked ~ .sidebar_menu{
+    left:0;
+    }
+     #check:checked ~ .btn_one i{ 
+    opacity:1;
+    }
+    #check:checked ~.sidebar_menu .btn_two i{
+        opacity: 1;
+    }
+    .menu a{
+        font-weight: 700;
+        font-size: medium;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="main_box">
+      <input type="checkbox" id="check" />
+      <div class="btn_one">
+        <label for="check" >
+          <i class="fa-solid fa-bars"></i>
+        </label>
+      </div>
+
+      <div class="sidebar_menu">
+        <div class="logo">
+          <a href="#"></a>
+        </div>
+
+        <div class="btn_two">
+          <label for="check" style="color: grey">
+            <i class="fa-solid fa-xmark"></i>
+          </label>
+        </div>
+
+        <div class="menu">
+          <ul>
+            <li>
+              <i class="fa-solid fa-image"></i>
+              <a href="#">Gallery</a>
+            </li>
+            
+            <li>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <a href="#">Shortcuts</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-photo-film"></i>
+              <a href="#">Exhibits</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-calendar-days"></i>
+              <a href="#">Events</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-store"></i>
+              <a href="#">Store</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-comments"></i>
+              <a href="#">Feedback</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="social_media">
+          <ul>
+            <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+
+      document.addEventListener("DOMContentLoaded", function() {
+      const menu = document.getElementById('.menu');
+  
+      window.onscroll = function() {
+          if (window.scrollY > 50) {
+              menu.style.backgroundColor = "#111";
+          } else {
+              menu.style.backgroundColor = "#333";
+          }
+      };
+  });
+  
+  
+      </script>
+  </body>
+</html>
